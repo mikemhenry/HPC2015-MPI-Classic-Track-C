@@ -33,9 +33,12 @@ int main(int argc, char **argv)
   printf("Target density of cars is %f \n", density);
 
 #pragma omp parallel
+{
 #pragma omp master
+  {
   printf("Running on %d thread(s)\n", omp_get_num_threads());
-
+  }
+}
   // Initialise road accordingly using random number generator
 
   printf("Initialising road ...\n");
