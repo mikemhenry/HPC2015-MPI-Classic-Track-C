@@ -37,7 +37,7 @@ int updateroad(int *newroad, int *oldroad, int n)
   int i, nmove;
 
   nmove = 0;
-
+#pragma omp parallel default(none) private(i) shared(oldroad, newroad)
   for (i=1; i<=n; i++)
     {
       if (oldroad[i] == 1)
